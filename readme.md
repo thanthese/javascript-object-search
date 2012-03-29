@@ -9,7 +9,7 @@ it.
 This project exposes a single function, `search`, that will crawl your object
 looking for your value.
 
-   search(nested object, predicate function, max depth <optional>)
+    search(nested object, predicate function, max depth <optional>)
 
 ## Example usage
 
