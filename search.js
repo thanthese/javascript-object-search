@@ -67,3 +67,17 @@ function search(object, predicate, maxDepth) {
  */
 function searchEqual(object, value, maxDepth) {
   return search(object, function(n) { return n == value}, maxDepth) }
+
+/**
+ * Same as search(), but instead of taking a predicate it takes a string to
+ * fuzzy-match on.
+ */
+function searchLike(object, str, maxDepth) {
+  var a = str.toLowerCase()
+  return search(
+      object,
+      function(n) {
+        if( typeof n != "string" ) return false
+        var b = n.toLowerCase()
+        return a.indexOf(b) > 0 || b.indexOf(a) > 0 },
+      maxDepth )}

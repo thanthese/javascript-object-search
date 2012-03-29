@@ -23,8 +23,14 @@ returns
       , path   : [ 2, 2, "a", 1 ] }
     ]
 
-`searchEqual` is also provided, which works just like `search` except it takes
-an exact value to match rather than a predicate.
+## Additional helpers
+
+- `searchEqual` works just like `search` except it takes an exact value to
+  match rather than a predicate.
+
+- `searchLike` works just like `search` only it takes a string to fuzzy-match
+  on rather than a predicate.  (Fuzzy matching here means putting globbing
+  patterns on either end of everything, as well as being case-insensitive.)
 
 ## Dependencies
 

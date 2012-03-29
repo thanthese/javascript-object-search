@@ -21,3 +21,6 @@ ok(search(sample, matchHello, 7) instanceof Object)
 
 ok(search(sample, matchA)[0].path == "3,1,1,1")
 ok(searchEqual(sample, "a")[0].path == "3,1,1,1")
+
+ok(searchLike(sample, "eLl")[0].path == "3,1,1,1,b,2,c")
+ok(searchLike(sample, "a hEllO to you")[0].path == "3,1,1,1,b,2,c")
