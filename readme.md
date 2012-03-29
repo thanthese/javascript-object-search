@@ -23,3 +23,7 @@ returns
       { object : 6
       , path   : [ 2, 2, "a", 1 ]}
     ]
+
+## Dependencies
+
+None, other than a sane browser.
