@@ -6,8 +6,7 @@ it.
 
 ## The solution
 
-This project exposes a single function, `search`, that will crawl your object
-looking for your value (or key).
+The function `search` will crawl your object looking for your value (or key).
 
     search(nested object, predicate function, max depth <optional>)
 
@@ -23,6 +22,9 @@ returns
       { object : 6
       , path   : [ 2, 2, "a", 1 ] }
     ]
+
+`searchEqual` is also provided, which works just like `search` except it takes
+an exact value to match rather than a predicate.
 
 ## Dependencies
 

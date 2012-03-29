@@ -35,7 +35,7 @@ function search(object, predicate, maxDepth) {
 
     ++depth
     if( maxDepth && depth > maxDepth + 1 )
-      return "Max depth of " + depth + " met."
+      return matches
 
     var newQueue = []
     for( var i = 0; i < queue.length; ++i ) {
@@ -54,9 +54,16 @@ function search(object, predicate, maxDepth) {
           newQueue.push(makeNode(obj[k], safePush(path, k))) }}
 
       else if( predicate(obj) ) {
-        matches.push(node) }
+          matches.push(node) }
     }
     queue = newQueue
   }
   return matches
 }
+
+/**
+ * Same as search(), but instead of taking a predicate it takes an exact value
+ * to search for.
+ */
+function searchEqual(object, value, maxDepth) {
+  return search(object, function(n) { return n == value}, maxDepth) }

@@ -16,7 +16,8 @@ var matchHello = match("hello")
 var matchA = match("a")
 
 ok(search(sample, matchHello)[0].path == "3,1,1,1,b,2,c")
-ok(!(search(sample, matchHello, 6) instanceof Object))  // should error to string
+ok(search(sample, matchHello, 6).length == 0)
 ok(search(sample, matchHello, 7) instanceof Object)
 
 ok(search(sample, matchA)[0].path == "3,1,1,1")
+ok(searchEqual(sample, "a")[0].path == "3,1,1,1")
