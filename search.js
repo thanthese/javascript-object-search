@@ -48,7 +48,7 @@ function search(object, predicate, maxDepth) {
         for( var j = 0; j < obj.length; ++j )
           newQueue.push(makeNode(obj[j], safePush(path, j)))
 
-      else if ( obj instanceof Object )
+      else if( obj instanceof Object )
         for( var k in obj )
           newQueue.push(makeNode(obj[k], safePush(path, k)))
 
