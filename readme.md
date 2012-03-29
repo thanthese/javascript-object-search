@@ -21,7 +21,7 @@ returns
 
     [
       { object : 6
-      , path   : [ 2, 2, "a", 1 ]}
+      , path   : [ 2, 2, "a", 1 ] }
     ]
 
 ## Dependencies
