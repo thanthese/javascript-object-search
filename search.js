@@ -1,6 +1,6 @@
 /**
- * Search a complex, nested javascript object for values matching a predicate
- * function.
+ * Search a complex, nested javascript object for values or keys matching a
+ * predicate function.
  *
  * maxDepth is optional.  (Use it to avoid hanging on recursive strutures.)
  *
@@ -44,16 +44,17 @@ function search(object, predicate, maxDepth) {
       var obj = node.object
       var path = node.path
 
-      if( obj instanceof Array )
-        for( var j = 0; j < obj.length; ++j )
-          newQueue.push(makeNode(obj[j], safePush(path, j)))
+      if( obj instanceof Array ) {
+        for( var j = 0; j < obj.length; ++j ) {
+          newQueue.push(makeNode(obj[j], safePush(path, j))) }}
 
-      else if( obj instanceof Object )
-        for( var k in obj )
-          newQueue.push(makeNode(obj[k], safePush(path, k)))
+      else if( obj instanceof Object ) {
+        for( var k in obj ) {
+          if( predicate(k) ) matches.push(node)
+          newQueue.push(makeNode(obj[k], safePush(path, k))) }}
 
-      else if( predicate(obj) )
-        matches.push(node)
+      else if( predicate(obj) ) {
+        matches.push(node) }
     }
     queue = newQueue
   }

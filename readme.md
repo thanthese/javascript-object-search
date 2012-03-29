@@ -7,7 +7,7 @@ it.
 ## The solution
 
 This project exposes a single function, `search`, that will crawl your object
-looking for your value.
+looking for your value (or key).
 
     search(nested object, predicate function, max depth <optional>)
 
