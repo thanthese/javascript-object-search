@@ -9,18 +9,17 @@ var sample =
                               d: "world"}]}]],
         19 ]]
 
+function match(m) { return function(n) { return n == m }}
+
 function ok(val) { console.log("worked: " + val) }
 
-function match(m) { return function(n) { return n == m }}
-var matchHello = match("hello")
-var matchA = match("a")
+ok(search(sample, match("hello"))[0].path == "3,1,1,1,b,2,c")
+ok(search(sample, match("hello"), 6).length == 0)
+ok(search(sample, match("hello"), 7) instanceof Object)
+ok(search(sample, match("a"))[0].path == "3,1,1,1")
 
-ok(search(sample, matchHello)[0].path == "3,1,1,1,b,2,c")
-ok(search(sample, matchHello, 6).length == 0)
-ok(search(sample, matchHello, 7) instanceof Object)
-
-ok(search(sample, matchA)[0].path == "3,1,1,1")
 ok(searchEqual(sample, "a")[0].path == "3,1,1,1")
+ok(searchEqual(sample, 3)[0].path == "0,2")
 
 ok(searchLike(sample, "eLl")[0].path == "3,1,1,1,b,2,c")
 ok(searchLike(sample, "a hEllO to you")[0].path == "3,1,1,1,b,2,c")
